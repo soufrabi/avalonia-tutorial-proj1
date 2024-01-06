@@ -6,9 +6,18 @@
         Width="400" Height="500"
         x:Class="proj1.MainWindow"
         Title="proj1">
-        <StackPanel>
+        <!-- 
+            Auto : take only as much space as content inside
+            *    : fill the rest of the space
+            
+            if you have multiple * 
+            like * , 2* then divide the remaining portion in 3 parts
+            assign 1/3rd portion to the first element
+            assign 2/3rd portion to the second element
+         -->
+        <Grid RowDefinitions="Auto, *, Auto">
             <!-- Title Bar -->
-            <Grid Background="Orange" Height="40" ColumnDefinitions="Auto, Auto, *, Auto, Auto">
+            <Grid  Grid.Row="0" Background="Orange" Height="40" ColumnDefinitions="Auto, Auto, *, Auto, Auto">
                 <Rectangle Grid.Column="0"  Fill="Red" Width="40"> </Rectangle>
                 <Rectangle Grid.Column="1"  Fill="Blue" Width="40"> </Rectangle>
                 <StackPanel Orientation="Horizontal" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"> 
@@ -19,13 +28,20 @@
                 <Rectangle Grid.Column="4"  Fill="Yellow" Width="40"> </Rectangle>
             </Grid>
             <!-- Main area -->
-            <Grid Background="#333">
-                <Label Foreground="#FFF"> This is stacked below. It does not fill the whole space.</Label>
+            <Grid Grid.Row="1" Background="#333" ColumnDefinitions="Auto,Auto,*">
+                <!-- Volume Bar -->
+                <Rectangle Grid.Column="0" Fill="Purple" Width="100"> </Rectangle>
+                <!-- Details Panel -->
+                <Rectangle Grid.Column="1" Fill="LightGray" Width="120"> </Rectangle>
+                <!-- Graph -->
+                <Rectangle Grid.Column="2" Fill="Black"> </Rectangle>
             </Grid>
 
             <!-- Bottom area -->
-            <Grid>
+            <Grid Grid.Row="2" ShowGridLines="True" Margin="8" Background="#FFF" ColumnDefinitions="Auto, Auto,*,Auto,Auto"> 
+                <Button Grid.Column="0"> Stereo </Button>
+                <Button Grid.Column="1"> YouTube </Button>
             </Grid>
-        </StackPanel>
+        </Grid>
     
 </Window>

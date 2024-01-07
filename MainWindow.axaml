@@ -6,6 +6,15 @@
         Width="700" Height="500"
         x:Class="proj1.MainWindow"
         Title="proj1">
+
+        <Window.Styles>
+            <Style Selector="Button">
+                <Setter Property="FontSize" Value="24" />
+                <!-- <Setter Property="FontWeight" Value="Bold" /> -->
+                <Setter Property="Foreground" Value="White"> </Setter>
+                <Setter Property="Background" Value="#7f98c7"/>
+            </Style>
+        </Window.Styles>
         <!-- 
             Auto : take only as much space as content inside
             *    : fill the rest of the space
@@ -30,7 +39,17 @@
             <!-- Main area -->
             <Grid Grid.Row="1" Background="#333" ColumnDefinitions="Auto,Auto,*">
                 <!-- Volume Bar -->
-                <Rectangle Grid.Column="0" Fill="Purple" Width="100"> </Rectangle>
+                <!-- <Rectangle Grid.Column="0" Fill="Purple" Width="100"> </Rectangle> -->
+                <Grid Grid.Column="0" Background="#1a1c28" Width="100" RowDefinitions="*,Auto,Auto">
+                    <Grid Grid.Row="0">
+                    </Grid>
+                    <Label Grid.Row="1" Foreground="White" FontSize="20">LUFS</Label>
+                    <StackPanel Grid.Row="2">
+                        <Button> A </Button>
+                        <Button> B </Button>
+                        <Label> test </Label>
+                    </StackPanel>
+                </Grid>
                 <!-- Details Panel -->
                 <Rectangle Grid.Column="1" Fill="LightGray" Width="120"> </Rectangle>
                 <!-- Graph -->

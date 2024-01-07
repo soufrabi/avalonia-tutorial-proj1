@@ -3,18 +3,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
-        Width="700" Height="500"
+        Width="700" Height="550"
         x:Class="proj1.MainWindow"
         Title="proj1">
 
-        <Window.Styles>
-            <Style Selector="Button">
-                <Setter Property="FontSize" Value="24" />
-                <!-- <Setter Property="FontWeight" Value="Bold" /> -->
-                <Setter Property="Foreground" Value="White"> </Setter>
-                <Setter Property="Background" Value="#7f98c7"/>
-            </Style>
-        </Window.Styles>
+        
         <!-- 
             Auto : take only as much space as content inside
             *    : fill the rest of the space
@@ -39,19 +32,49 @@
             <!-- Main area -->
             <Grid Grid.Row="1" Background="#333" ColumnDefinitions="Auto,Auto,*">
                 <!-- Volume Bar -->
-                <!-- <Rectangle Grid.Column="0" Fill="Purple" Width="100"> </Rectangle> -->
-                <Grid Grid.Column="0" Background="#1a1c28" Width="100" RowDefinitions="*,Auto,Auto">
-                    <Grid Grid.Row="0">
+                <Grid Grid.Column="0" Background="#1a1c28" Width="150" RowDefinitions="*,Auto,Auto" Margin="0, 20">
+                    <!-- Volume Meter Gauge -->
+                    <Grid Grid.Row="0" RowDefinitions="3*,3*,3*,9*,5*,4*,9*,9*,9*,6*">
+                        <Grid.Styles>
+                            <Style Selector="Label" >
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </Grid.Styles>
+                        <Label Grid.Row="0">0 ~~</Label>
+                        <Label Grid.Row="1">-3 ~~</Label>
+                        <Label Grid.Row="2">-6 ~~</Label>
+                        <Label Grid.Row="3">-9 ~~</Label>
+                        <Label Grid.Row="4">-18 ~~</Label>
+                        <Label Grid.Row="5">-23 ~~</Label>
+                        <Label Grid.Row="6">-27 ~~</Label>
+                        <Label Grid.Row="7">-36 ~~</Label>
+                        <Label Grid.Row="8">-45 ~~</Label>
+                        <Label Grid.Row="9">-54 ~~</Label>
+                        <Label Grid.Row="10"></Label>
                     </Grid>
-                    <Label Grid.Row="1" Foreground="White" FontSize="20">LUFS</Label>
-                    <StackPanel Grid.Row="2">
-                        <Button> A </Button>
-                        <Button> B </Button>
-                        <Label> test </Label>
+                    <!-- LUFS label -->
+                    <Label Grid.Row="1" Foreground="White" FontSize="20" HorizontalAlignment="Center">LUFS</Label>
+                    <!-- Volume bar buttons -->
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel.Styles>
+                            <Style Selector="Button">
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="Foreground" Value="White"> </Setter>
+                                <Setter Property="Background" Value="#7f98c7"/>
+                                <Setter Property="CornerRadius" Value="20" />
+                                <!-- Padding left-right, top-bottom -->
+                                <Setter Property="Padding" Value="7,2" />
+
+                            </Style>
+                        </StackPanel.Styles>
+                        <Button Margin="0,0,20,0"> A </Button>
+                        <Button> INT-LRA </Button>
                     </StackPanel>
                 </Grid>
                 <!-- Details Panel -->
-                <Rectangle Grid.Column="1" Fill="LightGray" Width="120"> </Rectangle>
+                <Rectangle Grid.Column="1" Fill="LightGray" Width="170"> </Rectangle>
                 <!-- Graph -->
                 <Rectangle Grid.Column="2" Fill="Black"> </Rectangle>
             </Grid>
